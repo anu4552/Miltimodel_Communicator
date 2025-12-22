@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Help:)ME AI - Progress Report</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+  
+
+
+  <style>
+    /* body {
+  zoom: 0.7; /* Makes the whole page 70% of original size */
+  /*transform-origin: top center;}*/
+
+
+  body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background: #f9fafc;
+    margin: 0;
+    color: #222;
+    font-size: 13px;              /* 🔹 smaller text */
+    zoom: 0.85;                   /* 🔹 scales down entire page */
+  }
+
+  header {
+    background: linear-gradient(90deg, #4f46e5, #9333ea);
+    color: white;
+    padding: 12px 24px;           /* 🔹 less padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  header h1 {
+    font-size: 16px;              /* 🔹 smaller heading */
+    font-weight: 600;
+    margin: 0;
+  }
+
+  header .logo {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+
+  .container {
+    width: 85%;                   /* 🔹 narrower */
+    max-width: 700px;             /* 🔹 smaller card */
+    margin: 20px auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+  }
+
+  .section-title {
+    background: #1e3a8a;
+    color: white;
+    padding: 8px 14px;            /* 🔹 smaller bar */
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  .content {
+    padding: 12px 15px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  td {
+    padding: 4px 6px;
+    vertical-align: top;
+  }
+
+  td.label {
+    font-weight: 600;
+    width: 35%;
+    color: #333;
+    font-size: 12px;
+  }
+
+  .chart-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 12px;
+    gap: 8px;
+  }
+  .chart-box {
+  width: 47%;
+  background: #f8fafc;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  min-height: 260px;   /* 🚀 REQUIRED */
+}
+
+
+  /* .chart-box {
+    width: 47%;
+    background: #f8fafc;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    text-align: center;
+  } */
+
+  .chart-box h3 {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  canvas {
+    width: 100% !important;
+    height: 150px !important;     /* 🔹 smaller charts */
+  }
+
+  @media (max-width: 768px) {
+    .chart-box {
+      width: 100%;
+    }
+  }
+
+  .note {
+    background: #f1f5f9;
+    color: #555;
+    text-align: center;
+    padding: 10px;
+    font-size: 11px;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .symptom-badge {
+    display: inline-block;
+    background: #e0e7ff;
+    color: #312e81;
+    padding: 2px 6px;
+    margin: 1px;
+    border-radius: 8px;
+    font-size: 11px;
+    border: 1px solid #4f46e5;
+  }
+
+  .highlight {
+    display: inline-block;
+    background: linear-gradient(90deg, #6366f1, #a855f7);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    box-shadow: 0 1px 4px rgba(99, 102, 241, 0.3);
+    animation: glow 2s ease-in-out infinite alternate;
+    margin-bottom: 8px;
+  }
+  #progressLine {
+  height: 220px !important;
+}
+
+
+  @keyframes glow {
+    from { box-shadow: 0 0 4px #6366f1; }
+    to { box-shadow: 0 0 10px #a855f7; }
+  }
+
+  footer {
+    text-align: center;
+    background: #fff;
+    padding: 10px 0 15px 0;
+    border-top: 1px solid #e5e7eb;
+  }
+</style>
+
+
+
+</head>
+<body>
+  <header>
+    <div class="logo">Help:)ME AI</div>
+    <h1>Progress Report</h1>
+  </header>
+
+  <div class="container">
+    <div class="section-title">Patient Demographics</div>
+    <div class="content">
+      <table>
+        <tr><td class="label">User ID:</td><td>{{ user_id }}</td></tr>
+        <tr><td class="label">Age:</td><td>{{ age }}</td></tr>
+        <tr><td class="label">Gender:</td><td>{{ gender }}</td></tr>
+      </table>
+    </div>
+
+    <div class="section-title">Vital Signs</div>
+    <div class="content">
+      <table>
+        <tr><td class="label">Disorder:</td><td>{{ disorder }}</td></tr>
+        <tr><td class="label">Sleeping Hours:</td><td>{{ sleeping_hr }} hrs</td></tr>
+        <tr><td class="label">Interaction Duration:</td><td>{{ interaction_duration }} hrs</td></tr>
+        <tr><td class="label">Mental Scale:</td><td>{{ mental_scale }} / 10 🙂</td></tr>
+        <tr><td class="label">Previous Score:</td><td>{{ prev_score }}  </td></tr>
+        
+          
+            
+              <tr><td class="label">Symptoms:</td>
+               <td>
+                  {% for sym in symptoms %}
+                  <span class="symptom-badge">{{ sym }}</span>
+                  {% endfor %}
+                </td>
+                </tr>
+
+            
+          
+        
+      </table>
+    </div>
+
+    <div class="section-title">Progress Analysis</div>
+    <div class="chart-container">
+      <div class="chart-box">
+        <h3 style="color:#1e3a8a;">Progress Distribution</h3>
+        <canvas id="progressPie"></canvas>
+      </div>
+      <div class="chart-box">
+        <h3 style="color:#1e3a8a;"> Progress Comparison</h3>
+        <canvas id="progressBarChart" style="width:100%; height:300px;"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="highlight">Progress increased by {{ progress_increase }}% 🚀</div>
+    <div class="note">Generated by Help:)ME AI — Empowering Health Insights with AI.</div>
+  </footer>
+
+  
+
+  <script>
+    Chart.defaults.maintainAspectRatio = false;
+    const pieCtx = document.getElementById("progressPie");
+    new Chart(pieCtx, {
+    type: "doughnut",
+    data: {
+      labels: ["Sleeping Hours", "Interaction Duration", "Mental Scale" ],
+      datasets: [{
+        data: [
+          Number("{{ sleeping_hr }}"),
+          Number("{{ interaction_duration }}"),
+          Number("{{ mental_scale }}"),
+          
+          
+        ],
+        backgroundColor: ["#4f46e5", "#10b981", "#f59e0b" ],
+        hoverOffset: 8
+      }]
+    },
+    options: {
+      plugins: {
+        legend: { position: "right" }
+      }
+    }
+  });
+    // new Chart(pieCtx, {
+    //   type: "doughnut",
+    //   data: {
+    //     labels: ["Mental Health", "Physical Health", "Sleep Quality", "Diet", "Stress"],
+    //     datasets: [{
+    //       data: [35, 25, 20, 10, 10],
+    //       backgroundColor: ["#4f46e5", "#10b981", "#f59e0b", "#3b82f6", "#ef4444"],
+    //       hoverOffset: 8
+    //     }]
+    //   },
+    //   options: { plugins: { legend: { position: "right" } } }
+    // });
+
+    const previous_score = parseFloat("{{ prev_score }}");
+    const current_score = parseFloat("{{ progress_increase  }}");
+
+    const ctx = document.getElementById("progressBarChart").getContext("2d");
+
+    new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: ["Previous Score", "Current Score"],
+            datasets: [{
+                label: "Progress Score",
+                data: [previous_score, current_score],
+                backgroundColor: ["#ef4444", "#3b82f6"],  // red & blue
+                borderRadius: 10,
+                barThickness: 60
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    min: 0,
+                    max: 100,
+                    title: {
+                        display: true,
+                        text: "Score"
+                    }
+                }
+            }
+        }
+    });
+
+    
+
+//     const ctx = document.getElementById("progressLine").getContext("2d");
+
+// // Dynamic values from backend
+// const previousScore = Number("{{ previous_progress }}");
+// const currentScore  = Number("{{ current_progress }}");
+
+// // X-axis scale (10 to 100)
+// const progressScale = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+
+// // Convert single progress value → a line across axis
+// function generateLinePoints(score) {
+//   return progressScale.map(() => score);
+// }
+
+// new Chart(ctx, {
+//   type: "line",
+//   data: {
+//     labels: progressScale,
+//     datasets: [
+//       {
+//         label: "Previous Progress",
+//         data: generateLinePoints(previousScore),
+//         borderColor: "#f87171",  // red
+//         backgroundColor: "rgba(248, 113, 113, 0.25)",
+//         tension: 0.3,
+//         borderWidth: 3,
+//         pointRadius: 5,
+//         pointBackgroundColor: "#f87171"
+//       },
+//       {
+//         label: "Current Progress",
+//         data: generateLinePoints(currentScore),
+//         borderColor: "#4f46e5",  // indigo
+//         backgroundColor: "rgba(79, 70, 229, 0.25)",
+//         tension: 0.3,
+//         borderWidth: 3,
+//         pointRadius: 6,
+//         pointBackgroundColor: "#4f46e5"
+//       }
+//     ]
+//   },
+//   options: {
+//     responsive: true,
+//     maintainAspectRatio: false,
+//     plugins: {
+//       legend: { display: true, position: "top" }
+//     },
+//     scales: {
+//       x: {
+//         title: { display: true, text: "Percentage Scale (10 → 100)" },
+//         min: 10,
+//         max: 100,
+//         ticks: { color: "#333" }
+//       },
+//       y: {
+//         title: { display: true, text: "Progress (%)" },
+//         min: 10,
+//         max: 100,
+//         ticks: { color: "#333", stepSize: 10 }
+//       }
+//     }
+//   }
+// });
+
+ 
+
+
+
+    // const ctx = document.getElementById("progressLine").getContext("2d");
+    // new Chart(ctx, {
+    //   type: "line",
+    //   data: {
+    //     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    //     datasets: [
+    //       {
+    //         label: "2024",
+    //         data: [220, 280, 320, 270, 310, 380, 420, 460, 430, 470, 490, 520],
+    //         borderColor: "#facc15",
+    //         backgroundColor: "rgba(250, 204, 21, 0.2)",
+    //         tension: 0.4,
+    //         borderWidth: 3,
+    //         pointRadius: 4,
+    //         pointBackgroundColor: "#facc15"
+    //       },
+    //       {
+    //         label: "2025",
+    //         data: [250, 290, 360, 428, 390, 370, 410, 440, 460, 500, 530, 560],
+    //         borderColor: "#6366f1",
+    //         backgroundColor: "rgba(99, 102, 241, 0.2)",
+    //         tension: 0.4,
+    //         borderWidth: 3,
+    //         pointRadius: 5,
+    //         pointBackgroundColor: "#6366f1"
+    //       }
+    //     ]
+    //   },
+    //   options: {
+    //     responsive: true,
+    //     plugins: {
+    //       legend: { display: true, position: "top" },
+    //       tooltip: {
+    //         backgroundColor: "#fff",
+    //         titleColor: "#111",
+    //         bodyColor: "#333",
+    //         borderColor: "#ddd",
+    //         borderWidth: 1,
+    //         callbacks: {
+    //           label: function(context) {
+    //             return `${context.dataset.label}: ${context.parsed.y}`;
+    //           }
+    //         }
+    //       }
+    //     },
+    //     scales: {
+    //       y: { beginAtZero: true, grid: { color: "#f0f0f0" }, ticks: { color: "#555" } },
+    //       x: { grid: { display: false }, ticks: { color: "#555" } }
+    //     }
+    //   }
+    // });
+  </script>
+</body>
+</html>

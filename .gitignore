@@ -1,0 +1,23 @@
+# ===== Python =====
+venv/
+env/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# ===== Node / Frontend =====
+node_modules/
+
+# ===== Model / Training artifacts =====
+*.pt
+*.pth
+*.h5
+*.ckpt
+
+# ===== OS / Editor =====
+.DS_Store
+Thumbs.db
+.vscode/
+
+# ===== Logs =====
+*.log
