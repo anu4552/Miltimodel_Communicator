@@ -51,14 +51,12 @@ Real-time Dashboard + Community Chat Platform
 
 | Layer | Technologies |
 |--------|--------------|
-| Frontend | React.js, Tailwind CSS, WebSockets |
+| Frontend | React.js, Tailwind CSS|
 | Backend | FastAPI, Python |
-| Machine Learning | Scikit-learn, TensorFlow / PyTorch |
+| Machine Learning | Scikit-learnh |
 | Computer Vision | OpenCV, MediaPipe |
 | Speech Processing | SpeechRecognition, TTS |
-| Database | MongoDB / PostgreSQL |
-| Real-time Communication | Socket.IO |
-| Deployment | Docker, GitHub Actions, Cloud Hosting |
+| Database | MongoDB  |
 
 ---
 
